@@ -1,0 +1,129 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Project Individual\\SCLIMS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|f:\\project individual\\sclims\\sclims\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|solutionrelative:sclims\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|F:\\Project Individual\\SCLIMS\\sclims\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|solutionrelative:sclims\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|F:\\Project Individual\\SCLIMS\\sclims\\inventorysearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|solutionrelative:sclims\\inventorysearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|F:\\Project Individual\\SCLIMS\\sclims\\reportgenarate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|solutionrelative:sclims\\reportgenarate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|F:\\Project Individual\\SCLIMS\\sclims\\reportgenarate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|solutionrelative:sclims\\reportgenarate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|F:\\Project Individual\\SCLIMS\\sclims\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23DB6378-1406-4D62-B719-3D404F5804F3}|SCLIMS\\SCLIMS.csproj|solutionrelative:sclims\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 536,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Inventorysearch.cs [Design]",
+              "DocumentMoniker": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Inventorysearch.cs",
+              "RelativeDocumentMoniker": "SCLIMS\\Inventorysearch.cs",
+              "ToolTip": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Inventorysearch.cs [Design]",
+              "RelativeToolTip": "SCLIMS\\Inventorysearch.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T03:29:13.622Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Form1.cs",
+              "RelativeDocumentMoniker": "SCLIMS\\Form1.cs",
+              "ToolTip": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Form1.cs",
+              "RelativeToolTip": "SCLIMS\\Form1.cs",
+              "ViewState": "AQIAAD4BAAAAAAAAAAAvwEYBAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T03:01:29.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Form1.cs",
+              "RelativeDocumentMoniker": "SCLIMS\\Form1.cs",
+              "ToolTip": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Form1.cs [Design]",
+              "RelativeToolTip": "SCLIMS\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T02:55:54.523Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Reportgenarate.cs",
+              "DocumentMoniker": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Reportgenarate.cs",
+              "RelativeDocumentMoniker": "SCLIMS\\Reportgenarate.cs",
+              "ToolTip": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Reportgenarate.cs",
+              "RelativeToolTip": "SCLIMS\\Reportgenarate.cs",
+              "ViewState": "AQIAAGACAAAAAAAAAAAuwG0CAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T07:24:46.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Reportgenarate.cs [Design]",
+              "DocumentMoniker": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Reportgenarate.cs",
+              "RelativeDocumentMoniker": "SCLIMS\\Reportgenarate.cs",
+              "ToolTip": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Reportgenarate.cs [Design]",
+              "RelativeToolTip": "SCLIMS\\Reportgenarate.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T07:21:15.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Report.cs",
+              "DocumentMoniker": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Report.cs",
+              "RelativeDocumentMoniker": "SCLIMS\\Report.cs",
+              "ToolTip": "F:\\Project Individual\\SCLIMS\\SCLIMS\\Report.cs",
+              "RelativeToolTip": "SCLIMS\\Report.cs",
+              "ViewState": "AQIAABQCAAAAAAAAAAAgwCYCAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T02:23:37.331Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 116,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
