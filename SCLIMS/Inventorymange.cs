@@ -354,13 +354,12 @@ namespace SCLIMS
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            int yCoordinate = 100;
+            int yCoordinate = 250;
 
+            e.Graphics.DrawString("SRI LANKA INSTITUTE OF ADVANCED TECHNOLOGICAL", new System.Drawing.Font("Times New Roman", 18, FontStyle.Bold), Brushes.Black, new Point(60, 100));
+            e.Graphics.DrawString("EDUCATION", new System.Drawing.Font("Times New Roman", 18, FontStyle.Bold), Brushes.Black, new Point(320,150));
+            e.Graphics.DrawString("KURUNEGALA", new System.Drawing.Font("Times New Roman", 16), Brushes.Black, new Point(320, 200));
 
-
-            // Title
-            e.Graphics.DrawString("SLIATE Kurunegala", new System.Drawing.Font("Times New Roman", 20, FontStyle.Bold), Brushes.Black, new Point(350, yCoordinate));
-            yCoordinate += 60;
 
             e.Graphics.DrawString("This will confirm following item/s will effectively Transfer  ", new System.Drawing.Font("Times New Roman", 14, FontStyle.Regular), Brushes.Black, new Point(100, yCoordinate));
             yCoordinate += 20;
@@ -509,15 +508,13 @@ namespace SCLIMS
 
         private void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            int yCoordinate = 100;
+            int yCoordinate = 250;
+
+            e.Graphics.DrawString("SRI LANKA INSTITUTE OF ADVANCED TECHNOLOGICAL", new System.Drawing.Font("Times New Roman", 18, FontStyle.Bold), Brushes.Black, new Point(60, 100));
+            e.Graphics.DrawString("EDUCATION", new System.Drawing.Font("Times New Roman", 18, FontStyle.Bold), Brushes.Black, new Point(320, 150));
+            e.Graphics.DrawString("KURUNEGALA", new System.Drawing.Font("Times New Roman", 16), Brushes.Black, new Point(320, 200));
 
 
-
-            // Title
-            e.Graphics.DrawString("SLIATE Kurunegala", new System.Drawing.Font("Times New Roman", 20, FontStyle.Bold), Brushes.Black, new Point(350, yCoordinate));
-            yCoordinate += 60;
-
-            
 
             e.Graphics.DrawString("This will confirm following item/s will effectively Remove not work items  ", new System.Drawing.Font("Times New Roman", 14, FontStyle.Regular), Brushes.Black, new Point(100, yCoordinate));
             yCoordinate += 20;

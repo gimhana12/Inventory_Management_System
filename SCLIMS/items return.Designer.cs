@@ -207,11 +207,11 @@
             this.to_location,
             this.status,
             this.retrun});
-            this.dataGridView1.Location = new System.Drawing.Point(132, 276);
+            this.dataGridView1.Location = new System.Drawing.Point(41, 276);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1082, 258);
+            this.dataGridView1.Size = new System.Drawing.Size(1279, 258);
             this.dataGridView1.TabIndex = 86;
             // 
             // label5
@@ -338,14 +338,13 @@
             this.status.HeaderText = "Status";
             this.status.MinimumWidth = 6;
             this.status.Name = "status";
-            this.status.Width = 125;
             // 
             // retrun
             // 
             this.retrun.HeaderText = "Return";
             this.retrun.MinimumWidth = 6;
             this.retrun.Name = "retrun";
-            this.retrun.Width = 125;
+            this.retrun.Width = 80;
             // 
             // items_return
             // 

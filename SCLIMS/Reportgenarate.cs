@@ -173,7 +173,7 @@ namespace SCLIMS
             {
                 con.Open();
 
-                string searchQuery = "SELECT item_code,item_name,time,position,location,id_no,mobile_no,name,status,date FROM items_transfer_external WHERE issude_by = @issude_by ORDER BY issude_by";
+                string searchQuery = "SELECT item_code,item_name,time,position,location,id_no,mobile_no,name,status,date,issude_by FROM items_transfer_external WHERE issude_by = @issude_by ORDER BY issude_by";
 
                 using (SqlCommand command = new SqlCommand(searchQuery, con))
                 {
@@ -200,6 +200,8 @@ namespace SCLIMS
                 }
             }
         }
+
+
 
         private void cmbPLace_Click(object sender, EventArgs e)
         {
@@ -435,8 +437,12 @@ namespace SCLIMS
         {
             int yCoordinate = 100;
             int cellWidth = 100; // Adjust cell width as needed
-            int cellHeight = 30;
+            int cellHeight = 50;
             int dcellWidth = 120;
+
+            // Adjust tableHeaderX to move the table left
+            int tableHeaderX =5; // Original value was 55
+            int tableY = 400;
 
             try
             {
@@ -472,16 +478,11 @@ namespace SCLIMS
                 }
                 else
                 {
-                    
+                    // Handle missing user_name value if necessary
                 }
-
             }
 
-
-            // Table headers
-            int tableHeaderX = 55;
-            int tableY = 400;
-
+            // Table headers with adjusted x-coordinates
             e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(tableHeaderX, tableY, cellWidth, cellHeight));
             e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX, tableY, cellWidth, cellHeight));
             e.Graphics.DrawString("Date", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new RectangleF(tableHeaderX, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
@@ -502,13 +503,17 @@ namespace SCLIMS
             e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 3 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
             e.Graphics.DrawString("Status", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new RectangleF(tableHeaderX + 3 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
 
-            e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight));
-            e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight));
-            e.Graphics.DrawString("Time", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new RectangleF(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
-
             e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(tableHeaderX + 4 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
             e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 4 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
-            e.Graphics.DrawString("Condition", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new RectangleF(tableHeaderX + 4 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+            e.Graphics.DrawString("Current Place", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new RectangleF(tableHeaderX + 4 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+            e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(tableHeaderX + 6 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight));
+            e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 6 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight));
+            e.Graphics.DrawString("Time", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new RectangleF(tableHeaderX + 6 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+            e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
+            e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
+            e.Graphics.DrawString("Condition", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new RectangleF(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
 
             tableY += cellHeight;
 
@@ -516,26 +521,21 @@ namespace SCLIMS
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    if (row.Cells["date"].Value != null && row.Cells["time"].Value != null && row.Cells["item_code"].Value != null && row.Cells["item_name"].Value != null && row.Cells["default_location"].Value != null && row.Cells["condition"].Value != null && row.Cells["status"].Value != null)
+                    if (row.Cells["date"].Value != null && row.Cells["time"].Value != null && row.Cells["item_code"].Value != null && row.Cells["item_name"].Value != null && row.Cells["default_location"].Value != null && row.Cells["condition"].Value != null && row.Cells["status"].Value != null && row.Cells["from_location"].Value != null)
                     {
                         string itemName = row.Cells["item_name"].Value.ToString();
                         string itemCode = row.Cells["item_code"].Value.ToString();
                         string Dlocation = row.Cells["default_location"].Value.ToString();
                         string Condition = row.Cells["condition"].Value.ToString();
                         string Status = row.Cells["status"].Value.ToString();
-                        //string time = row.Cells["time"].Value.ToString();
+                        string Clocation = row.Cells["from_location"].Value.ToString();
 
+                        // Format the time string to show only the time part (12-hour format with AM/PM)
                         string timeString = row.Cells["time"].Value.ToString();
-
-                        // Parse the time string to DateTime format
+                        string formattedTime = "";
                         if (DateTime.TryParse(timeString, out DateTime timeValue))
                         {
-                            string formattedTime = timeValue.ToString("hh:mm tt"); // Format as 12-hour with AM/PM
-
-                            // Draw the formatted time
-                            e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight));
-                            e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight));
-                            e.Graphics.DrawString(formattedTime, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                            formattedTime = timeValue.ToString("hh:mm tt");
                         }
 
                         // Draw date
@@ -552,8 +552,6 @@ namespace SCLIMS
                         {
                             e.Graphics.DrawString("Invalid Date", new System.Drawing.Font("Arial", 10, FontStyle.Regular), Brushes.Red, new PointF(tableHeaderX, tableY));
                         }
-
-
 
                         // Draw other columns similarly
                         e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + cellWidth, tableY, cellWidth, cellHeight));
@@ -572,14 +570,18 @@ namespace SCLIMS
                         e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 3 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
                         e.Graphics.DrawString(Status, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 3 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
 
-                        /*
-                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight));
-                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight));
-                        e.Graphics.DrawString(time, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
-                        */
-                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 4 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
-                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 4 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
-                        e.Graphics.DrawString(Condition, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 4 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 4 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight));
+                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 4 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight));
+                        e.Graphics.DrawString(Clocation, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 4 * cellWidth + dcellWidth, tableY, dcellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawString(Condition, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 5 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+                        // Draw the formatted time string
+                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 6 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 6 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawString(formattedTime, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 6 * cellWidth + dcellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
 
                         tableY += cellHeight;
 
@@ -597,26 +599,150 @@ namespace SCLIMS
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
 
-            // Date and signature
-            string currentDate = DateTime.Today.ToString("yyyy-MM-dd");
-            e.Graphics.DrawString("Date: " + currentDate, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new Point(50, tableY));
-            e.Graphics.DrawString("Signature: ........................", new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new Point(600, tableY));
-
-            // Check if there's more content to print on subsequent pages
-            if (tableY + cellHeight > e.MarginBounds.Bottom)
-            {
-                e.HasMorePages = true;
-            }
-            else
-            {
-                e.HasMorePages = false;
-            }
-
 
         }
 
         private void printDocument3_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+
+
+            int yCoordinate = 100;
+            int cellWidth = 100; // Adjust cell width as needed
+            int cellHeight = 45;
+            int pageWidth = e.PageBounds.Width;
+            int pageHeight = e.PageBounds.Height;
+            int leftMargin = 15;
+
+            try
+            {
+                // Load logo image
+                Image image = Image.FromFile(@"F:\Project Individual\SCLIMS\SLIATE_LOGO2.jpg");
+                Point imageLocation = new Point(350, 20); // Adjust the location as needed
+                yCoordinate += 30;
+
+                // Draw the image
+                e.Graphics.DrawImage(image, new Rectangle(imageLocation, new Size(80, 120))); // Adjust size as needed
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading image: " + ex.Message);
+            }
+
+            // Title and headers
+            e.Graphics.DrawString("SRI LANKA INSTITUTE OF ADVANCED TECHNOLOGICAL", new System.Drawing.Font("Times New Roman", 18, FontStyle.Bold), Brushes.Black, new Point(50, 200));
+            e.Graphics.DrawString("EDUCATION", new System.Drawing.Font("Times New Roman", 18, FontStyle.Bold), Brushes.Black, new Point(320, 230));
+            e.Graphics.DrawString("KURUNEGALA", new System.Drawing.Font("Times New Roman", 16), Brushes.Black, new Point(320, 260));
+            e.Graphics.DrawString("Report", new System.Drawing.Font("Times New Roman", 16, FontStyle.Regular), Brushes.Black, new Point(360, 300));
+
+            // Get the username
+            string userName = "Unknown";
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (dataGridView1.Columns.Contains("issude_by") && row.Cells["issude_by"].Value != null)
+                {
+                    userName = row.Cells["issude_by"].Value.ToString();
+                    break; // assuming all rows have the same username
+                }
+            }
+            e.Graphics.DrawString("User Name: " + userName, new System.Drawing.Font("Times New Roman", 14, FontStyle.Regular), Brushes.Black, new Point(leftMargin, 350));
+
+            // Table headers
+            int tableHeaderX = leftMargin;
+            int tableY = 400;
+
+            void DrawTableHeader(string text, int x)
+            {
+                e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(x, tableY, cellWidth, cellHeight));
+                e.Graphics.DrawRectangle(Pens.Black, new Rectangle(x, tableY, cellWidth, cellHeight));
+                e.Graphics.DrawString(text, new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new RectangleF(x, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+            }
+
+            DrawTableHeader("Date", tableHeaderX);
+            DrawTableHeader("Item Code", tableHeaderX + cellWidth);
+            DrawTableHeader("Item Name", tableHeaderX + 2 * cellWidth);
+            DrawTableHeader("Status", tableHeaderX + 3 * cellWidth);
+            DrawTableHeader("Name", tableHeaderX + 4 * cellWidth);
+            DrawTableHeader("ID No", tableHeaderX + 5 * cellWidth);
+            DrawTableHeader("Mobile No", tableHeaderX + 6 * cellWidth);
+            DrawTableHeader("Location", tableHeaderX + 7 * cellWidth);
+
+            tableY += cellHeight;
+
+            try
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.Cells["date"].Value != null && row.Cells["item_code"].Value != null && row.Cells["item_name"].Value != null && row.Cells["status"].Value != null && row.Cells["name"].Value != null && row.Cells["id_no"].Value != null && row.Cells["mobile_no"].Value != null && row.Cells["location"].Value != null)
+                    {
+                        string itemName = row.Cells["item_name"].Value.ToString();
+                        string itemCode = row.Cells["item_code"].Value.ToString();
+                        string name = row.Cells["name"].Value.ToString();
+                        string status = row.Cells["status"].Value.ToString();
+                        string idNo = row.Cells["id_no"].Value.ToString();
+                        string mobileNo = row.Cells["mobile_no"].Value.ToString();
+                        string location = row.Cells["location"].Value.ToString();
+
+                        // Draw date
+                        if (row.Cells["date"].Value is DateTime dateValue)
+                        {
+                            string formattedDate = dateValue.ToString("yyyy-MM-dd");
+                            e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX, tableY, cellWidth, cellHeight));
+                            e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX, tableY, cellWidth, cellHeight));
+                            e.Graphics.DrawString(formattedDate, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                        }
+                        else
+                        {
+                            e.Graphics.DrawString("Invalid Date", new System.Drawing.Font("Arial", 10, FontStyle.Regular), Brushes.Red, new PointF(tableHeaderX, tableY));
+                        }
+
+                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawString(itemCode, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + cellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 2 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 2 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawString(itemName, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 2 * cellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 3 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 3 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawString(status, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 3 * cellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 4 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 4 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawString(name, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 4 * cellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 5 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 5 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawString(idNo, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 5 * cellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 6 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 6 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawString(mobileNo, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 6 * cellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+                        e.Graphics.FillRectangle(Brushes.White, new Rectangle(tableHeaderX + 7 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawRectangle(Pens.Black, new Rectangle(tableHeaderX + 7 * cellWidth, tableY, cellWidth, cellHeight));
+                        e.Graphics.DrawString(location, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new RectangleF(tableHeaderX + 7 * cellWidth, tableY, cellWidth, cellHeight), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+                        tableY += cellHeight; // Move to next row
+
+                        // Check if we need to create a new page
+                        if (tableY + cellHeight > pageHeight)
+                        {
+                            // Create a new page
+                            e.HasMorePages = true;
+                            return;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error generating report: " + ex.Message);
+            }
+
+            // Indicate that no more pages are required
+            e.HasMorePages = false;
+
 
 
 
