@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{23DB6378-1406-4D62-B719-3D404F5804F3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SCLIMS</RootNamespace>
+    <AssemblyName>SCLIMS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.Barcode">
+      <HintPath>C:\Users\User\Downloads\New folder\barcode and qrcode dll\MessagingToolkit.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode">
+      <HintPath>C:\Users\User\Downloads\New folder\barcode and qrcode dll\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="NPoco, Version=5.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPoco.5.7.1\lib\net461\NPoco.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Async, Version=5.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Async.5.0.0\lib\net461\System.Linq.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Category.Designer.cs">
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory items.Designer.cs">
+      <DependentUpon>Inventory items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventorymange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventorymange.Designer.cs">
+      <DependentUpon>Inventorymange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventorysearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventorysearch.Designer.cs">
+      <DependentUpon>Inventorysearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="items return.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="items return.Designer.cs">
+      <DependentUpon>items return.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Locations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Locations.Designer.cs">
+      <DependentUpon>Locations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other.Designer.cs">
+      <DependentUpon>Other.cs</DependentUpon>
+    </Compile>
+    <Compile Include="otherplace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="otherplace.Designer.cs">
+      <DependentUpon>otherplace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Password manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Password manage.Designer.cs">
+      <DependentUpon>Password manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sclimsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sclimsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sclimsDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sclimsDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sclimsDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sclimsDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sclimsDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sclimsDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sclimsDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sclimsDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sclimsDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sclimsDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sclimsDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sclimsDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="settings and maintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="settings and maintenance.Designer.cs">
+      <DependentUpon>settings and maintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Category.resx">
+      <DependentUpon>Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory items.resx">
+      <DependentUpon>Inventory items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventorymange.resx">
+      <DependentUpon>Inventorymange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventorysearch.resx">
+      <DependentUpon>Inventorysearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="items return.resx">
+      <DependentUpon>items return.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Locations.resx">
+      <DependentUpon>Locations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other.resx">
+      <DependentUpon>Other.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="otherplace.resx">
+      <DependentUpon>otherplace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Password manage.resx">
+      <DependentUpon>Password manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings and maintenance.resx">
+      <DependentUpon>settings and maintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="sclimsDataSet.xsc">
+      <DependentUpon>sclimsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sclimsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sclimsDataSet.xss">
+      <DependentUpon>sclimsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet1.xsc">
+      <DependentUpon>sclimsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sclimsDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sclimsDataSet1.xss">
+      <DependentUpon>sclimsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet2.xsc">
+      <DependentUpon>sclimsDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sclimsDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sclimsDataSet2.xss">
+      <DependentUpon>sclimsDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet3.xsc">
+      <DependentUpon>sclimsDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sclimsDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sclimsDataSet3.xss">
+      <DependentUpon>sclimsDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet4.xsc">
+      <DependentUpon>sclimsDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sclimsDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sclimsDataSet4.xss">
+      <DependentUpon>sclimsDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet5.xsc">
+      <DependentUpon>sclimsDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sclimsDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sclimsDataSet5.xss">
+      <DependentUpon>sclimsDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet6.xsc">
+      <DependentUpon>sclimsDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="sclimsDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sclimsDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sclimsDataSet6.xss">
+      <DependentUpon>sclimsDataSet6.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-computer-icons-computer-lab-computer-class-text-computer-logo-thumbnail-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computer-tower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desktop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mouse1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
